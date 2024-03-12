@@ -2,6 +2,7 @@ package com.simplify.controller;
 
 import com.simplify.entity.Todo;
 import com.simplify.service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
     @PostMapping()
-    public List<Todo> create(@RequestBody Todo todo) {
+    public List<Todo> create(@RequestBody @Valid Todo todo) {
         return todoService.create(todo);
     }
     @GetMapping()
